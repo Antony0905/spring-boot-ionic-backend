@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.matheus.cursomc.domain.enums.EstadoPagamento;
 
 @Entity
@@ -25,6 +26,7 @@ public abstract class Pagamento implements Serializable {
 	private Integer estado;
 
 	/* @MapsId permite que o Mapeamento do Integer Id da classe pagamento seja o mesmo do id da classe Pedido*/	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="pedido_id")
 	@MapsId
